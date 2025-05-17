@@ -1,0 +1,12 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  if (code) {
+    location.href = `myapp://oauth-callback?code=${encodeURIComponent(code)}`;
+  } else {
+    location.href = `myapp://oauth-callback`;
+  }
+</script>
+</head><body>Redirecting…</body></html>
