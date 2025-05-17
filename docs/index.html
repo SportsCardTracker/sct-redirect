@@ -1,13 +1,19 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const code = params.get('code');
-  if (code) {
-    window.location = `myapp://oauth-callback?code=${encodeURIComponent(code)}`;
-  } else {
-    window.location = `myapp://oauth-callback`;
-  }
-</script>
-</head><body>Redirecting…</body></html>
-<!-- updated to trigger deploy -->
+  <title>Redirecting…</title>
+</head><body>
+  <h2>Tap to return to the app</h2>
+  <button onclick="handleRedirect()">Open App</button>
+
+  <script>
+    function handleRedirect() {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get('code');
+      if (code) {
+        window.location = `myapp://oauth-callback?code=${encodeURIComponent(code)}`;
+      } else {
+        window.location = `myapp://oauth-callback`;
+      }
+    }
+  </script>
+</body></html>
