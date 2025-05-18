@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Continue to App</title>
+  <title>Redirect to App</title>
 </head>
 <body>
-  <h2>Ready to return to the app?</h2>
-  <button onclick="openApp()">Tap here to continue</button>
+  <h2>You're ready to return to the app.</h2>
+  <p>If you are not redirected automatically, tap below.</p>
+  <button onclick="redirectToApp()">Open Sports Card Tracker</button>
 
   <script>
-    function openApp() {
+    function redirectToApp() {
       const params = new URLSearchParams(window.location.search);
-      const code = params.get('code');
-      const url = code
+      const code = params.get("code");
+      const redirectURL = code
         ? `myapp://oauth-callback?code=${encodeURIComponent(code)}`
         : `myapp://oauth-callback`;
-
-      window.location.href = url;
+      window.location.href = redirectURL;
     }
   </script>
 </body>
